@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Apartamenty w sercu Chełmna - ul. Rybacka 3, Chełmno</title>
+<meta name="description" content="Trzy apartamenty z kuchnią w zabytkowej kamienicy w centrum Chełmna. Sprawdź dostępność i zarezerwuj bezpośrednio.">
+<meta name="theme-color" content="#fbf6f0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1">
+<link rel="icon" href="img/serce.png">
+</head>
+<body>
+<!-- Wizualizacja koncepcji nowej strony. Treści, ceny i zdjęcia pochodzą z obecnej strony apartamentywsercuchelmna.pl.
+     Zajęte dni w kalendarzu są przykładowe (demonstracja). Przypisanie zdjęć do apartamentów - wg kolorystyki wnętrz, do potwierdzenia. -->
+<header class="top" id="top">
+  <div class="wrap top-in">
+    <a class="marka" href="#top" aria-label="Apartamenty w sercu Chełmna - strona główna">
+      <img src="img/serce.png" alt="" width="111" height="84">
+      <span>Apartamenty<br><em>w sercu Chełmna</em></span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Menu główne">
+      <a href="#apartamenty">Apartamenty</a>
+      <a href="#rezerwacja">Rezerwacja</a>
+      <a href="#cennik">Cennik</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#chelmno">Chełmno</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="tel-top" href="tel:+48566912080" aria-label="Zadzwoń: 56 691 20 80">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+      <span>56 691 20 80</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <figure class="hero-foto">
+    <img src="img/hero.jpg" alt="Jasny pokój dzienny z aneksem kuchennym i widokiem na sypialnię" width="1600" height="1067" fetchpriority="high">
+  </figure>
+  <div class="hero-in">
+    <p class="hero-adres">ul. Rybacka 3, Chełmno</p>
+    <h1>Apartamenty <span class="nw">w sercu Chełmna</span></h1>
+    <p class="lead">Trzy apartamenty z kuchnią w odrestaurowanej kamienicy, w samym sercu zabytkowego Chełmna - miasta zakochanych.</p>
+    <a class="btn" href="#rezerwacja" id="heroCta">Sprawdź dostępność</a>
+    <p class="oceny"><span>Booking.com <b>9,4</b>/10 · 233 opinie</span><span>Google <b>4,8</b>/5 · 98 opinii</span></p>
+  </div>
+</section>
+
+<section class="sek sek-biala" id="apartamenty">
+  <div class="wrap">
+    <div class="sek-glowa">
+      <h2>Trzy apartamenty</h2>
+      <p>Każdy z osobną łazienką, kuchnią i miejscem do odpoczynku. Wybierz ten, który pasuje do Waszej grupy.</p>
+    </div>
+    <div class="apts">
+      <article class="apt" style="--k:#8f86c4">
+        <div class="apt-foto"><img src="img/lawendowy.jpg" alt="Apartament Lawendowy - stół z lawendowymi podkładkami i aneks z łóżkiem" loading="lazy" width="1600" height="979"></div>
+        <div class="apt-in">
+          <h3>Lawendowy</h3>
+          <p class="apt-meta">parter · ok. 35 m² · 1-3 osoby</p>
+          <p>Kuchnia, łazienka i pokój dzienny z sofą dwuosobową oraz aneksem sypialnianym z łóżkiem jednoosobowym.</p>
+          <div class="apt-dol"><p class="cena">od <b>140 zł</b> / doba</p><a class="btn-link" href="#rezerwacja" data-apt="lawendowy">Sprawdź termin</a></div>
+        </div>
+      </article>
+      <article class="apt" style="--k:#7a5040">
+        <div class="apt-foto"><img src="img/cappuccino.jpg" alt="Apartament Cappuccino - pokój dzienny z sofą i stołem" loading="lazy" width="950" height="633"></div>
+        <div class="apt-in">
+          <h3>Cappuccino</h3>
+          <p class="apt-meta">I piętro · ok. 56 m² · 2-4 osoby + małe dziecko</p>
+          <p>Kuchnia, łazienka, pokój dzienny z kanapą i sypialnia z dwoma łóżkami, które można połączyć w łóżko małżeńskie.</p>
+          <div class="apt-dol"><p class="cena">od <b>180 zł</b> / doba</p><a class="btn-link" href="#rezerwacja" data-apt="cappuccino">Sprawdź termin</a></div>
+        </div>
+      </article>
+      <article class="apt" style="--k:#1f8fb0">
+        <div class="apt-foto"><img src="img/blekitny.jpg" alt="Apartament Błękitny - pokój dzienny z aneksem kuchennym" loading="lazy" width="950" height="653"></div>
+        <div class="apt-in">
+          <h3>Błękitny</h3>
+          <p class="apt-meta">I piętro · ok. 56 m² · do 5 osób</p>
+          <p>Pokój dzienny z aneksem kuchennym i sofą, łazienka oraz sypialnia z trzema łóżkami (można połączyć w małżeńskie + pojedyncze).</p>
+          <div class="apt-dol"><p class="cena">od <b>180 zł</b> / doba</p><a class="btn-link" href="#rezerwacja" data-apt="blekitny">Sprawdź termin</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sek sek-krem" id="wyposazenie">
+  <div class="wrap dwie">
+    <div class="foto-para">
+      <img class="fp-duze" src="img/fasada.jpg" alt="Elewacja kamienicy przy ul. Rybackiej" loading="lazy" width="950" height="634">
+      <img class="fp-male" src="img/ogrod.jpg" alt="Podwórze z ogrodem, stołem i parasolem" loading="lazy" width="950" height="633">
+    </div>
+    <div class="tekst">
+      <h2>W każdym apartamencie</h2>
+      <ul class="lista">
+        <li>Część wypoczynkowa z sofą, stolikiem i telewizorem</li>
+        <li>Stół z krzesłami dla czterech osób - do posiłków albo do pracy</li>
+        <li>Kuchnia: lodówka, mikrofalówka, podwójna płyta indukcyjna i naczynia</li>
+        <li>Łazienka z kabiną prysznicową</li>
+        <li>Wi-Fi</li>
+      </ul>
+      <h3 class="h3-m">Z dziećmi</h3>
+      <p>Na życzenie łóżeczko z pościelą, krzesełko do karmienia, podgrzewacz i sterylizator, zabezpieczenia kontaktów i narożników. Dzieci do lat 4 śpiące z rodzicami - bezpłatnie.</p>
+      <h3 class="h3-m">Na miejscu</h3>
+      <p>Zamknięty parking. Śniadania i obiady z restauracji 30 m od kamienicy, także z dostawą do apartamentu. Na specjalne okazje - dla nowożeńców, zakochanych, na jubileusz - przygotujemy wystrój apartamentu.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sek sek-biala" id="rezerwacja">
+  <div class="wrap">
+    <div class="sek-glowa">
+      <h2>Sprawdź dostępność i zarezerwuj</h2>
+      <p>Wybierz apartament i daty pobytu. Cenę zobaczysz od razu, a prośba o rezerwację trafi prosto do recepcji.</p>
+    </div>
+
+    <div class="rez" id="rez">
+      <div class="rez-lewa">
+        <div class="wybor" role="radiogroup" aria-label="Apartament" id="wyborApt">
+          <button type="button" role="radio" data-apt="lawendowy" aria-checked="true">Lawendowy<small>1-3 os.</small></button>
+          <button type="button" role="radio" data-apt="cappuccino" aria-checked="false">Cappuccino<small>2-4 os.</small></button>
+          <button type="button" role="radio" data-apt="blekitny" aria-checked="false">Błękitny<small>2-5 os.</small></button>
+        </div>
+
+        <div class="kal" id="kal">
+          <div class="kal-nav">
+            <button type="button" class="kal-str" id="kalPrev" aria-label="Poprzedni miesiąc"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <p class="kal-podp" id="kalPodp">Wybierz dzień przyjazdu</p>
+            <button type="button" class="kal-str" id="kalNext" aria-label="Następny miesiąc"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+          <div class="kal-mies" id="kalMies"></div>
+          <div class="kal-leg">
+            <span><i class="l-wol"></i>wolne</span>
+            <span><i class="l-zaj"></i>zajęte (przykładowe)</span>
+            <span><i class="l-wyb"></i>Twój pobyt</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="rez-prawa" id="rezForm" novalidate>
+        <div class="daty">
+          <div><span>Przyjazd</span><b id="dPrzyj">-</b></div>
+          <div><span>Wyjazd</span><b id="dWyj">-</b></div>
+        </div>
+
+        <div class="pole-l">
+          <div><span class="et">Goście</span><small>dorośli i dzieci od 4 lat</small></div>
+          <div class="stepper"><button type="button" data-krok="-1" data-cel="goscie" aria-label="Mniej gości">-</button><output id="goscie">2</output><button type="button" data-krok="1" data-cel="goscie" aria-label="Więcej gości">+</button></div>
+        </div>
+        <div class="pole-l">
+          <div><span class="et">Dzieci do lat 4</span><small>śpiące z rodzicami - bezpłatnie</small></div>
+          <div class="stepper"><button type="button" data-krok="-1" data-cel="male" aria-label="Mniej dzieci">-</button><output id="male">0</output><button type="button" data-krok="1" data-cel="male" aria-label="Więcej dzieci">+</button></div>
+        </div>
+        <label class="pole-c"><input type="checkbox" id="parking"><span>Zamknięty parking <small>6 zł / doba</small></span></label>
+        <label class="pole-c" id="lozWiersz"><input type="checkbox" id="lozeczko"><span>Łóżeczko dziecięce <small>20 zł jednorazowo</small></span></label>
+
+        <div class="suma" id="suma" aria-live="polite">
+          <p class="suma-pusta">Zaznacz w kalendarzu przyjazd i wyjazd, a policzymy cenę pobytu.</p>
+        </div>
+
+        <div class="dane">
+          <label><span>Imię i nazwisko</span><input type="text" id="fImie" autocomplete="name" required></label>
+          <label><span>Telefon</span><input type="tel" id="fTel" autocomplete="tel" inputmode="tel" required></label>
+          <label><span>E-mail</span><input type="email" id="fMail" autocomplete="email"></label>
+        </div>
+        <button class="btn btn-pelny" type="submit" id="wyslij">Wyślij prośbę o rezerwację</button>
+        <p class="blad" id="blad" role="alert"></p>
+        <div class="potw" id="potw" hidden></div>
+      </form>
+    </div>
+
+    <p class="ical"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3M18 3v4h-4M6 21v-4h4"/></svg>Kalendarz będzie synchronizowany z Booking.com i innymi portalami (iCal), więc ten sam termin nie zostanie zarezerwowany dwa razy.</p>
+    <p class="demo-info">Wersja pokazowa: zajęte dni są przykładowe, a prośba nie jest nigdzie wysyłana.</p>
+  </div>
+</section>
+
+<section class="sek sek-krem" id="cennik">
+  <div class="wrap">
+    <div class="sek-glowa">
+      <h2>Cennik</h2>
+      <p>Cena za apartament za dobę, zależnie od liczby osób. Przy dłuższych pobytach cenę można negocjować.</p>
+    </div>
+    <div class="cennik">
+      <div class="cen-kol">
+        <h3>Lawendowy</h3>
+        <dl><dt>1 osoba</dt><dd>140 zł</dd><dt>2 osoby</dt><dd>165 zł</dd><dt>3 osoby</dt><dd>200 zł</dd></dl>
+      </div>
+      <div class="cen-kol">
+        <h3>Cappuccino</h3>
+        <dl><dt>2 osoby</dt><dd>180 zł</dd><dt>3 osoby</dt><dd>200 zł</dd><dt>4 osoby</dt><dd>220 zł</dd><dt>łóżeczko dziecięce</dt><dd>20 zł jednorazowo</dd></dl>
+      </div>
+      <div class="cen-kol">
+        <h3>Błękitny</h3>
+        <dl><dt>2 osoby</dt><dd>180 zł</dd><dt>3 osoby</dt><dd>200 zł</dd><dt>4 osoby</dt><dd>220 zł</dd><dt>5 osób</dt><dd>240 zł</dd><dt>łóżeczko dziecięce</dt><dd>20 zł jednorazowo</dd></dl>
+      </div>
+    </div>
+    <div class="dodatki">
+      <div>
+        <h3 class="h3-m">Posiłki</h3>
+        <p>Przygotowywane po wcześniejszym zamówieniu w restauracji 30 m od kamienicy. Śniadanie od 8:30: 20 zł za osobę dorosłą, 10 zł za dziecko powyżej 4 lat. Obiad z oferty dnia: 15 zł. Dostawa do apartamentu: +10 zł.</p>
+      </div>
+      <div>
+        <h3 class="h3-m">Parking i okazje</h3>
+        <p>Zamknięty parking: 6 zł za dobę. Wystrój apartamentu na specjalną okazję - cena ustalana indywidualnie. Dzieci do lat 4 śpiące z rodzicami - bezpłatnie.</p>
+      </div>
+    </div>
+    <p class="demo-info">Ceny przeniesione z obecnej strony - do aktualizacji przed uruchomieniem.</p>
+  </div>
+</section>
+
+<section class="sek sek-biala" id="galeria">
+  <div class="wrap">
+    <div class="sek-glowa">
+      <h2>Galeria</h2>
+      <p>Kamienica, podwórze z ogrodem i wnętrza apartamentów.</p>
+    </div>
+    <div class="gal" id="gal">
+      <button type="button" class="g-w"><img src="img/ogrod.jpg" alt="Podwórze z ogrodem i parasolem" loading="lazy"></button>
+      <button type="button"><img src="img/cappuccino-sypialnia.jpg" alt="Sypialnia z połączonymi łóżkami" loading="lazy"></button>
+      <button type="button"><img src="img/blekitny-sypialnia.jpg" alt="Sypialnia w ciepłym świetle lampek" loading="lazy"></button>
+      <button type="button" class="g-p"><img src="img/schody.jpg" alt="Drewniane schody w kamienicy" loading="lazy"></button>
+      <button type="button"><img src="img/kuchnia.jpg" alt="Kuchnia z drewnianym blatem" loading="lazy"></button>
+      <button type="button"><img src="img/lazienka.jpg" alt="Łazienka z kabiną prysznicową" loading="lazy"></button>
+      <button type="button"><img src="img/stol.jpg" alt="Stół przy oknie" loading="lazy"></button>
+      <button type="button" class="g-w"><img src="img/ogrod-roze.jpg" alt="Róże na podwórzu kamienicy" loading="lazy"></button>
+      <button type="button"><img src="img/cappuccino-kuchnia.jpg" alt="Jasna kuchnia przy oknie" loading="lazy"></button>
+      <button type="button"><img src="img/lawendowy-lozko.jpg" alt="Łóżko w aneksie sypialnianym" loading="lazy"></button>
+      <button type="button"><img src="img/salon.jpg" alt="Pokój dzienny z telewizorem" loading="lazy"></button>
+      <button type="button"><img src="img/ogrod-stol.jpg" alt="Stolik w ogrodzie" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<section class="sek sek-krem" id="chelmno">
+  <div class="wrap dwie dwie-odw">
+    <div class="tekst">
+      <h2>Chełmno - miasto zakochanych</h2>
+      <p>Gotyckie kościoły, renesansowy ratusz, niemal w całości zachowane mury obronne z bramami i szachownicowy układ ulic z największym rynkiem w Polsce północnej. Miasto jest na liście Pomników Historii.</p>
+      <p>W chełmińskiej farze przechowywane są relikwie św. Walentego, dlatego 14 lutego miasto świętuje wyjątkowo uroczyście - z dekoracjami, koncertami i jarmarkiem.</p>
+      <h3 class="h3-m">W kalendarzu miasta</h3>
+      <ul class="kalendarz">
+        <li><b>luty</b>Walentynki Chełmińskie, Jarmark św. Walentego</li>
+        <li><b>maj</b>Turniej Rycerski o „Złotą Jaszczurkę”</li>
+        <li><b>maj - sierpień</b>Chełmińskie Wieczory Organowe, „Muzyka w Zabytkach Chełmna”</li>
+        <li><b>czerwiec / lipiec</b>Dni Chełmna</li>
+        <li><b>grudzień</b>Jarmark świąteczny</li>
+      </ul>
+      <p class="okolica">W okolicy: Świecie z zamkiem krzyżackim (10 km), pałac w Bajerzu (14 km), ruiny zamku w Papowie Biskupim (17 km).</p>
+    </div>
+    <div class="foto-para">
+      <img class="fp-duze" src="img/panorama.jpg" alt="Panorama Chełmna z wieżami kościołów" loading="lazy" width="950" height="634">
+      <img class="fp-male" src="img/wieza.jpg" alt="Wieża kościoła w Chełmnie" loading="lazy" width="567" height="850">
+    </div>
+  </div>
+</section>
+
+<section class="sek sek-biala" id="kontakt">
+  <div class="wrap dwie">
+    <div class="tekst">
+      <h2>Kontakt i dojazd</h2>
+      <address>APARTAMENTY w sercu Chełmna<br>ul. Rybacka 3, 86-200 Chełmno</address>
+      <ul class="kontakty">
+        <li><span>Recepcja</span><a href="tel:+48566912080">56 691 20 80</a></li>
+        <li><span>Komórka</span><a href="tel:+48501780153">501 780 153</a></li>
+        <li><span>For English</span><a href="tel:+48791588681">791 588 681</a></li>
+        <li><span>E-mail</span><a href="mailto:recepcja@apartamentywsercuchelmna.pl">recepcja@apartamentywsercuchelmna.pl</a></li>
+      </ul>
+      <a class="btn btn-jasny" href="https://www.google.com/maps/dir/?api=1&amp;destination=53.34955,18.42123" target="_blank" rel="noopener">Wyznacz trasę</a>
+    </div>
+    <div class="mapa">
+      <iframe title="Mapa dojazdu - ul. Rybacka 3, Chełmno" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=18.4135%2C53.3462%2C18.4290%2C53.3530&amp;layer=mapnik&amp;marker=53.34955%2C18.42123"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="stopka">
+  <div class="wrap stopka-in">
+    <a class="marka" href="#top"><img src="img/serce.png" alt="" width="111" height="84"><span>Apartamenty<br><em>w sercu Chełmna</em></span></a>
+    <p>ul. Rybacka 3, 86-200 Chełmno · <a href="tel:+48566912080">56 691 20 80</a> · <a href="mailto:recepcja@apartamentywsercuchelmna.pl">recepcja@apartamentywsercuchelmna.pl</a></p>
+    <p class="mala">Wizualizacja nowej strony głównej. Treści, ceny i zdjęcia pochodzą z obecnej strony apartamentywsercuchelmna.pl.</p>
+  </div>
+</footer>
+
+<div class="mob" id="mob">
+  <a class="mob-tel" href="tel:+48566912080"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>Zadzwoń</a>
+  <a class="mob-cta" href="#rezerwacja">Sprawdź dostępność</a>
+</div>
+
+<div class="lb" id="lb" hidden>
+  <button type="button" class="lb-x" id="lbX" aria-label="Zamknij">×</button>
+  <button type="button" class="lb-s lb-p" id="lbP" aria-label="Poprzednie zdjęcie"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <img id="lbImg" alt="">
+  <button type="button" class="lb-s lb-n" id="lbN" aria-label="Następne zdjęcie"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+
+<script src="app.js?v=1"></script>
+</body>
+</html>
