@@ -50,6 +50,75 @@
     new IntersectionObserver(function (en) { mob.style.visibility = en[0].isIntersecting ? 'hidden' : ''; }, { threshold: 0.05 }).observe(form);
   }
 
+  /* karuzele zdjęć: przesuwanie palcem (natywny scroll-snap), myszą (przeciąganie), strzałkami i klawiaturą */
+  var gladko = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  $$('[data-kar]').forEach(function (k) {
+    var tor = $('.kar-tor', k), p = $('.kar-p', k), n = $('.kar-n', k);
+    var kropki = $$('.kar-kropki i', k), licz = $('.kar-licz b', k);
+    var sl = $$('.kar-sl', tor), akt = -1, ruch = false;
+    function widoczne() { return sl.filter(function (s) { return s.offsetWidth > 0; }); }
+    function wlaczona() { return tor.scrollWidth > tor.clientWidth + 4; }
+    function teraz() {
+      var w = widoczne(), x = tor.scrollLeft, best = 0, d = 1e9;
+      w.forEach(function (s, i) { var dd = Math.abs(s.offsetLeft - x); if (dd < d) { d = dd; best = i; } });
+      return best;
+    }
+    function idz(i) {
+      var w = widoczne(); if (!w.length) return;
+      i = Math.max(0, Math.min(w.length - 1, i));
+      tor.scrollTo({ left: w[i].offsetLeft, behavior: gladko ? 'smooth' : 'auto' });
+    }
+    function odswiez() {
+      var on = wlaczona(); k.classList.toggle('kar-on', on);
+      var w = widoczne(), i = teraz();
+      if (i === akt && k._n === w.length) return; akt = i; k._n = w.length;
+      kropki.forEach(function (d, j) { d.classList.toggle('on', j === i); });
+      if (licz) licz.textContent = i + 1;
+      if (p) p.disabled = i <= 0;
+      if (n) n.disabled = i >= w.length - 1;
+      if (k._dotkniety) dociagnij(i);
+    }
+    /* kolejne zdjęcia wczytują się dopiero, gdy ktoś zaczyna przeglądać karuzelę */
+    function dociagnij(i) {
+      widoczne().slice(i, i + 3).forEach(function (s) { var im = $('img', s); if (im && im.loading === 'lazy') im.loading = 'eager'; });
+    }
+    function dotyk() { if (!k._dotkniety) { k._dotkniety = true; dociagnij(teraz()); } }
+    ['pointerenter', 'touchstart', 'focusin'].forEach(function (ev) { k.addEventListener(ev, dotyk, { passive: true }); });
+    var raf = 0;
+    tor.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; odswiez(); }); }, { passive: true });
+    window.addEventListener('resize', function () { akt = -1; odswiez(); });
+    if (p) p.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); idz(teraz() - 1); });
+    if (n) n.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); idz(teraz() + 1); });
+    tor.addEventListener('keydown', function (e) {
+      if (!wlaczona()) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); idz(teraz() + 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); idz(teraz() - 1); }
+    });
+    /* przeciąganie myszą; klik po przeciągnięciu nie otwiera podstrony ani powiększenia */
+    var x0 = 0, s0 = 0, i0 = 0, wcisniety = false;
+    tor.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0 || !wlaczona()) return;
+      wcisniety = true; ruch = false; x0 = e.clientX; s0 = tor.scrollLeft; i0 = teraz();
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!wcisniety) return;
+      var dx = e.clientX - x0;
+      if (!ruch && Math.abs(dx) > 6) { ruch = true; k.classList.add('ciag'); }
+      if (ruch) { e.preventDefault(); tor.scrollLeft = s0 - dx; }
+    });
+    window.addEventListener('pointerup', function (e) {
+      if (!wcisniety) return; wcisniety = false;
+      if (!ruch) return;
+      var dx = e.clientX - x0, cel = i0;
+      if (dx < -40) cel = i0 + 1; else if (dx > 40) cel = i0 - 1;
+      k.classList.remove('ciag'); idz(cel);
+      setTimeout(function () { ruch = false; }, 0);
+    });
+    tor.addEventListener('click', function (e) { if (ruch) { e.preventDefault(); e.stopPropagation(); ruch = false; } }, true);
+    tor.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    odswiez();
+  });
+
   /* galeria w okienku */
   var lb = $('#lb');
   if (lb) {
