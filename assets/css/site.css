@@ -81,17 +81,24 @@ strong,b{font-weight:600;color:var(--ink)}
 .burger[aria-expanded="true"] i:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* hero strony głównej */
-.hero{position:relative;height:calc(100svh - var(--hh));min-height:540px;display:flex;align-items:center;overflow:hidden;background:#e9e2d8}
-.hero-foto{position:absolute;inset:0;margin:0}
-.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:60% 22%}
-.hero-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.9) 0%,rgba(255,255,255,.8) calc(50% - 300px),rgba(255,255,255,.35) calc(50% + 40px),rgba(255,255,255,0) calc(50% + 200px))}
+/* hero strony głównej: zdjęcie w kanciastym sercu z logo, fala Wisły i turkusowy czubek */
+.hero{position:relative;height:calc(100svh - var(--hh));min-height:540px;display:flex;align-items:center;overflow:hidden;background:#fff}
 .hero-in{position:relative;z-index:1;width:min(1240px,calc(100% - 64px));margin-inline:auto;color:var(--ink)}
-.hero-tekst{max-width:600px}
+.hero-tekst{max-width:min(600px,42vw)}
+.hero-serce{position:absolute;top:0;bottom:0;right:max(24px,calc((100% - 1240px) / 2 - 220px));left:calc(max(32px,(100% - 1240px) / 2) + min(600px,42vw) + 24px);display:flex;align-items:center;justify-content:center;pointer-events:none}
+.serce-box{position:relative;width:min(100%,calc((100svh - var(--hh)) * 1.06));aspect-ratio:120/94}
+.serce{position:absolute;inset:0;margin:0;clip-path:polygon(0 36.17%,28.33% 0,50% 27.66%,71.67% 0,100% 36.17%,50% 100%);background:#e9e2d8}
+.serce img{width:100%;height:100%;object-fit:cover;object-position:100% 50%}
+.serce-woda{position:absolute;inset:0;width:100%;height:100%}
+.serce-woda path{fill:var(--morze)}
+.serce-linia{position:absolute;top:0;height:100%;left:-33.33%;width:166.67%;overflow:visible;-webkit-mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.serce-linia path{fill:none;stroke:var(--ink);stroke-width:2.2px;vector-effect:non-scaling-stroke;stroke-linecap:round}
 .hero-adres{display:flex;align-items:center;gap:8px;font-weight:600;font-size:16px;margin:0 0 18px;color:var(--tekst)}
 .hero-adres svg{width:17px;height:17px;flex:none;color:var(--czer)}
-.hero h1{color:var(--ink);font-size:clamp(50px,5.2vw,92px);letter-spacing:-.025em;font-weight:500;line-height:1.02;margin:0 0 18px}
+.hero h1{color:var(--ink);font-size:clamp(46px,4.1vw,78px);letter-spacing:-.025em;font-weight:500;line-height:1.02;margin:0 0 18px}
 .falka{display:block;width:clamp(84px,7vw,120px);height:auto;margin:0 0 24px;overflow:visible}
+.hero .falka{display:none}
+.hero h1{margin-bottom:22px!important}
 .falka path{fill:none;stroke:var(--morze);stroke-width:3;stroke-linecap:round}
 .hero .lead{font-size:clamp(18px,1.35vw,21px);line-height:1.5;color:var(--tekst);margin:0 0 32px;max-width:520px}
 .hero .btn{min-height:58px;padding:0 34px;font-size:18px;box-shadow:0 14px 30px -16px rgba(214,58,64,.8)}
@@ -111,6 +118,8 @@ strong,b{font-weight:600;color:var(--ink)}
 .apt{display:flex;flex-direction:column;min-width:0;color:inherit;background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 0 0 1px var(--linia),0 2px 6px -4px rgba(20,40,50,.12);transition:box-shadow .25s ease,transform .25s ease}
 .apt:hover{box-shadow:0 0 0 1px var(--linia),0 22px 44px -24px rgba(20,40,50,.38);transform:translateY(-3px)}
 .apt-foto{aspect-ratio:4/3;overflow:hidden;background:var(--tlo3);position:relative}
+/* czubek serca z logo jako wskaźnik: zdjęcie "wskazuje" opis apartamentu */
+.apt-in::before{content:"";position:absolute;left:30px;top:-3px;width:22px;height:11px;background:var(--k);clip-path:polygon(0 0,100% 0,50% 100%);transform:translateY(0)}
 .apt-in{position:relative;background:color-mix(in srgb,var(--k) 7%,#fff);padding:24px 26px 26px;display:flex;flex-direction:column;flex:1;border-top:3px solid var(--k)}
 .apt-link{color:inherit;text-decoration:none}
 .apt-link::after{content:"";position:absolute;inset:0;z-index:1}
@@ -118,7 +127,7 @@ strong,b{font-weight:600;color:var(--ink)}
 .apt-link:focus-visible::after{outline:2px solid var(--morze-c);outline-offset:-3px}
 .apt:hover .apt-link{color:var(--czer-h)}
 .apt h3{font-size:clamp(26px,2.2vw,32px);margin:0 0 6px;display:flex;align-items:center;gap:10px}
-.apt h3 i{width:12px;height:12px;border-radius:50%;background:var(--k);flex:none}
+.apt h3 i{width:11px;height:11px;background:var(--k);flex:none;transform:rotate(45deg)}
 .apt-meta{font-size:15px;color:var(--szary);margin:0 0 12px}
 .apt-in>p:not(.apt-meta){font-size:16px;margin:0 0 20px}
 .apt-dol{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:18px;border-top:1px solid var(--linia)}
@@ -195,7 +204,10 @@ strong,b{font-weight:600;color:var(--ink)}
 .miejsca span{color:var(--szary);white-space:nowrap;font-size:15px}
 
 /* Chełmno - sekcja w kolorze gotyckiej cegły */
-.sek-cegla{background:var(--cegla);color:#f3e3dd}
+.sek-cegla{background:var(--cegla);color:#f3e3dd;position:relative;overflow:hidden}
+.cegla-serce{position:absolute;right:-6vw;bottom:-14vw;width:min(52vw,760px);height:auto;pointer-events:none}
+.cegla-serce path{fill:none;stroke:rgba(255,255,255,.09);stroke-width:1.2;stroke-linejoin:miter}
+.sek-cegla>.sek{position:relative}
 .sek-cegla h2{color:#fff}
 .sek-cegla h2::after,.zapr h2::after{content:"";display:block;width:84px;height:10px;margin-top:18px;background:#f0a596;-webkit-mask:var(--falka);mask:var(--falka)}
 .zapr h2::after{background:var(--morze)}
@@ -205,6 +217,9 @@ strong,b{font-weight:600;color:var(--ink)}
 .sek-cegla .miejsca li{border-color:rgba(255,255,255,.2)!important;color:#fff}
 .sek-cegla .miejsca span{color:#f0cfc6}
 .pietnascie{margin:0;display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+.pietnascie .znak{width:clamp(40px,3.4vw,56px);height:auto;flex:none;align-self:center;overflow:visible}
+.znak .z-o{fill:none;stroke:var(--logo-czer);stroke-width:6;stroke-linejoin:miter}
+.znak .z-w{fill:var(--morze)}
 .pietnascie b{white-space:nowrap;font-family:var(--serif);font-weight:500;font-size:clamp(84px,9vw,148px);line-height:.85;color:var(--logo-czer);letter-spacing:-.04em}
 .pietnascie span{font-size:18px;color:var(--szary);max-width:280px;line-height:1.45}
 .fala{display:block;width:100%;height:clamp(16px,2.2vw,34px);margin-bottom:-1px}
@@ -264,7 +279,10 @@ strong,b{font-weight:600;color:var(--ink)}
 .ceny div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0;border-bottom:1px solid var(--linia)}
 .ceny dt{color:var(--tekst)}
 .ceny dd{margin:0;font-weight:600;color:var(--ink);font-size:18px;white-space:nowrap}
-.ceny .dod dd{font-size:16px;font-weight:500}
+.ceny .dod dd{font-size:15.5px;font-weight:500;color:var(--szary)}
+.box-uw{font-size:14px;color:var(--szary);margin:-6px 0 18px;line-height:1.5}
+.cen-uw{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 40px;margin-top:28px;padding-top:24px;border-top:1px solid var(--linia)}
+.cen-uw p{margin:0;max-width:720px;color:var(--szary);font-size:16px}
 .box .btn{width:100%}
 .box-tel{display:block;text-align:center;margin-top:14px;font-weight:600;color:var(--ink);text-decoration:none}
 .box-tel:hover{color:var(--czer-h)}
@@ -275,14 +293,14 @@ strong,b{font-weight:600;color:var(--ink)}
 .wiersz:nth-child(even) .w-foto{order:2}
 .w-foto{display:block;border-radius:var(--r);overflow:hidden;aspect-ratio:3/2;background:var(--tlo3);position:relative;min-width:0}
 .wiersz h2{display:flex;align-items:baseline;gap:12px}
-.wiersz h2 i{flex:none;width:14px;height:14px;border-radius:50%;background:var(--k);transform:translateY(-.12em)}
+.wiersz h2 i{flex:none;width:13px;height:13px;background:var(--k);transform:translateY(-.12em) rotate(45deg)}
 .w-akcje{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:24px}
 
 /* cennik */
 .cennik{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .cen{background:#fff;border:1px solid var(--linia);border-top:3px solid var(--k);border-radius:var(--r);padding:26px 26px 22px;display:flex;flex-direction:column}
 .cen h2{font-size:28px;display:flex;align-items:center;gap:10px;margin-bottom:4px}
-.cen h2 i{width:12px;height:12px;border-radius:50%;background:var(--k)}
+.cen h2 i{width:11px;height:11px;background:var(--k);transform:rotate(45deg)}
 .cen>p{font-size:15px;color:var(--szary);margin-bottom:12px}
 .cen .ceny{margin-bottom:18px}
 .cen .link-str{margin-top:auto;align-self:flex-start}
@@ -342,7 +360,7 @@ legend{font-weight:600;color:var(--ink);margin-bottom:10px;padding:0}
 .wybor input{position:absolute;opacity:0;pointer-events:none}
 .wybor span{display:flex;flex-direction:column;gap:2px;height:100%;padding:12px 12px 11px;border:1.5px solid var(--linia);border-radius:12px;font-weight:600;color:var(--ink);line-height:1.25;transition:border-color .15s ease,background-color .15s ease}
 .wybor small{font-weight:400;color:var(--szary);font-size:13.5px}
-.wybor span i{display:block;width:10px;height:10px;border-radius:50%;background:var(--k);margin-bottom:4px}
+.wybor span i{display:block;width:9px;height:9px;background:var(--k);margin:2px 0 5px 1px;transform:rotate(45deg)}
 .wybor input:checked+span{border-color:var(--ink);background:var(--tlo2);box-shadow:inset 0 0 0 1px var(--ink)}
 .wybor input:focus-visible+span{outline:2px solid var(--morze-c);outline-offset:2px}
 .pola{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px;margin-bottom:14px}
@@ -458,7 +476,8 @@ address{font-style:normal}
   .menu a[aria-current="page"]{color:var(--czer-h)}
   .menu a[aria-current="page"]::after{display:none}
   .menu .menu-kontakt{display:block;border:0;margin-top:22px;padding:0}
-  .menu .menu-kontakt .btn{width:100%;font-family:var(--sans);font-size:17px;padding:0 20px;border:0}
+  .menu .menu-kontakt .btn{width:100%;font-family:var(--sans);font-size:17px;font-weight:600;padding:0 20px;border:0;border-radius:999px;color:#fff;line-height:1}
+  .menu.otw{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 124 98'%3E%3Cpath d='M0 34 L34 0 L60 26 L86 0 L120 34 L60 94Z' fill='none' stroke='%23ef464b' stroke-opacity='.13' stroke-width='1.2'/%3E%3Cpath d='M44 78 L76 78 L60 94Z' fill='%2305aac4' fill-opacity='.18'/%3E%3C/svg%3E") right -60px bottom -40px/300px auto no-repeat}
   .menu .menu-kontakt p{font-family:var(--sans);font-size:15px;color:var(--szary);margin:16px 0 0;line-height:1.5}
   .menu .menu-kontakt p a{display:inline;font-family:var(--sans);font-size:15px;border:0;padding:0;color:var(--ink);font-weight:600}
   .burger{display:flex;margin-left:-6px}
@@ -469,18 +488,18 @@ address{font-style:normal}
   .marka span{font-size:17px}
   .marka em{font-size:14px}
 
-  .hero{align-items:flex-end;height:calc(100svh - var(--hh));min-height:520px;background:#fff}
-  .hero-foto{bottom:22%}
-  .hero-foto img{object-position:74% 0%}
-  .hero-foto::after{background:linear-gradient(0deg,#fff 0%,rgba(255,255,255,.82) 26%,rgba(255,255,255,.35) 42%,rgba(255,255,255,0) 56%)}
-  .hero-in{padding:0 0 max(24px,3.4svh)}
+  .hero{flex-direction:column;align-items:stretch;justify-content:center;gap:min(18px,2.2svh);height:calc(100svh - var(--hh));min-height:520px;padding:min(14px,1.6svh) 0 max(18px,2.6svh)}
+  .hero-serce{position:relative;inset:auto;flex:1 1 auto;min-height:0;padding:0 10px}
+  .serce-box{width:min(100%,calc((100svh - var(--hh)) * .5))}
+  .serce-linia{left:-12%;width:124%}
+  .hero-in{flex:none}
   .hero-tekst{max-width:none}
-  .hero-adres{color:var(--szary);font-size:15px;margin-bottom:min(10px,1.4svh)}
+  .hero-adres{color:var(--szary);font-size:15px;margin-bottom:min(8px,1.2svh)}
   .hero-adres svg{color:var(--czer)}
-  .hero h1{font-size:clamp(34px,min(10vw,5.4svh),46px);line-height:1.04;margin-bottom:min(10px,1.4svh)}
-  .falka{width:78px;margin-bottom:min(14px,1.8svh)}
-  .hero .lead{font-size:clamp(15.5px,min(4.3vw,2.2svh),18px);line-height:1.5;margin-bottom:min(20px,2.6svh)}
-  .hero .btn{width:100%;min-height:54px;font-size:17px}
+  .hero h1{font-size:clamp(32px,min(9.6vw,5svh),44px);line-height:1.04;margin-bottom:min(10px,1.3svh)}
+  .falka{display:none}
+  .hero .lead{font-size:clamp(15px,min(4.2vw,2.15svh),17.5px);line-height:1.48;margin-bottom:min(18px,2.4svh)}
+  .hero .btn{width:100%;min-height:52px;font-size:17px}
   .oceny{margin-top:min(12px,1.6svh);font-size:14px;justify-content:center}
 
   .sek{padding:60px 0}
@@ -501,7 +520,10 @@ address{font-style:normal}
   .kar-gal .kar-sl img{position:absolute;inset:0}
   .kam-tekst{gap:20px}
   .pietnascie{flex-wrap:nowrap;gap:14px;align-items:center}
-  .pietnascie b{font-size:76px}
+  .pietnascie .znak{width:clamp(40px,3.4vw,56px);height:auto;flex:none;align-self:center;overflow:visible}
+.znak .z-o{fill:none;stroke:var(--logo-czer);stroke-width:6;stroke-linejoin:miter}
+.znak .z-w{fill:var(--morze)}
+.pietnascie b{font-size:76px}
   .pietnascie span{font-size:15.5px}
   .pg-apt{padding-bottom:28px!important}
   .pg-apt+section .gal-wrap{margin-top:0}
@@ -550,3 +572,11 @@ address{font-style:normal}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
 }
+
+/* nagłówki podstron: kanciaste serce z logo jako znak wodny */
+.pg{position:relative;overflow:hidden}
+.pg::before{content:"";position:absolute;right:max(16px,calc((100% - 1240px) / 2 - 40px));top:50%;width:clamp(180px,24vw,380px);aspect-ratio:124/98;transform:translateY(-50%);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 124 98'%3E%3Cpath d='M0 34 L34 0 L60 26 L86 0 L120 34 L60 94Z' fill='none' stroke='%23ef464b' stroke-opacity='.22' stroke-width='1'/%3E%3Cpath d='M44 78 L76 78 L60 94Z' fill='%2305aac4' fill-opacity='.35'/%3E%3C/svg%3E") center/contain no-repeat;pointer-events:none}
+.pg>.wrap{position:relative}
+@media (max-width:900px){.pg::before{width:150px;top:auto;bottom:18px;right:-24px;transform:none;opacity:.7}}
+.pg-apt::before{top:clamp(28px,3vw,44px);transform:none;width:clamp(150px,17vw,260px)}
+@media (max-width:900px){.pg-apt::before{top:auto;bottom:10px;width:120px}}

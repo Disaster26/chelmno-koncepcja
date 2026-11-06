@@ -209,7 +209,8 @@
         szac.innerHTML = 'Apartament ' + d.nazwa + ' mieści do ' + d.max + ' ' + odm(d.max, 'osoby', 'osób', 'osób') + '. Przy większej grupie zapytaj o dwa apartamenty albo wybierz Błękitny (do 5 osób).';
         return;
       }
-      szac.innerHTML = 'Orientacyjnie: <b>' + n + ' ' + odm(n, 'doba', 'doby', 'dób') + ' × ' + zl(cena) + ' = ' + zl(n * cena) + '</b> za apartament (' + osoby + ' ' + odm(osoby, 'osoba', 'osoby', 'osób') + '). Ostateczną cenę i dostępność potwierdzimy w odpowiedzi.';
+      if (!cena) { szac.innerHTML = 'Cenę apartamentu ' + d.nazwa + ' dla ' + osoby + ' ' + odm(osoby, 'osoby', 'osób', 'osób') + ' podamy w odpowiedzi na zapytanie.'; return; }
+      szac.innerHTML = 'Orientacyjnie: <b>' + n + ' ' + odm(n, 'noc', 'noce', 'nocy') + ' × ' + zl(cena) + ' = ' + zl(n * cena) + '</b> za apartament (' + osoby + ' ' + odm(osoby, 'osoba', 'osoby', 'osób') + '), według cen z Booking.com w zwykłych terminach. W niektórych terminach, np. w Walentynki, ceny są wyższe - dokładną kwotę potwierdzimy w odpowiedzi.';
     }
     form.addEventListener('input', licz); form.addEventListener('change', licz); licz();
 
