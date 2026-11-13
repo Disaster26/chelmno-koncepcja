@@ -167,15 +167,7 @@
     });
   }
 
-  /* mapa: wczytuje się dopiero po kliknięciu (bez połączeń z zewnętrznymi serwerami wcześniej) */
-  $$('[data-mapa]').forEach(function (m) {
-    var b = $('button', m);
-    if (b) b.addEventListener('click', function () {
-      var f = document.createElement('iframe');
-      f.src = m.getAttribute('data-mapa'); f.title = m.getAttribute('data-tytul') || 'Mapa'; f.loading = 'lazy';
-      m.innerHTML = ''; m.appendChild(f);
-    });
-  });
+  /* mapa Google: osadzona od razu, przy odmowie cookies wyłącza ją assets/js/ck.js */
 
   /* formularz zapytania */
   if (form) {
@@ -210,7 +202,8 @@
         return;
       }
       if (!cena) { szac.innerHTML = 'Cenę apartamentu ' + d.nazwa + ' dla ' + osoby + ' ' + odm(osoby, 'osoby', 'osób', 'osób') + ' podamy w odpowiedzi na zapytanie.'; return; }
-      szac.innerHTML = 'Orientacyjnie: <b>' + n + ' ' + odm(n, 'noc', 'noce', 'nocy') + ' × ' + zl(cena) + ' = ' + zl(n * cena) + '</b> za apartament (' + osoby + ' ' + odm(osoby, 'osoba', 'osoby', 'osób') + '), według cen z Booking.com w zwykłych terminach. W niektórych terminach, np. w Walentynki, ceny są wyższe - dokładną kwotę potwierdzimy w odpowiedzi.';
+      if (osoby !== 2) { szac.innerHTML = 'Cenę apartamentu ' + d.nazwa + ' dla ' + osoby + ' ' + odm(osoby, 'osoby', 'osób', 'osób') + ' podamy w odpowiedzi na zapytanie.'; return; }
+      szac.innerHTML = 'Orientacyjnie od: <b>' + n + ' ' + odm(n, 'noc', 'noce', 'nocy') + ' × ' + zl(cena) + ' = ' + zl(n * cena) + '</b> za apartament dla 2 osób (ceny jak na Booking.com). W niektórych terminach, np. w Walentynki, ceny są wyższe - dokładną kwotę potwierdzimy w odpowiedzi.';
     }
     form.addEventListener('input', licz); form.addEventListener('change', licz); licz();
 
